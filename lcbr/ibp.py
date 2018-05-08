@@ -191,6 +191,7 @@ def predict_leaf_issue(case, issue_id, all_factors, cases, model):
 def predict_issue(case, issue_id, factors, cases, model):
 
     issue = model['issues'][issue_id]
+    print('Analyzing case '+case['id'])
     print('predicting '+issue['id'])
 
     if issue['type'] in ['intermediate_issue', 'top_level_issue']:
