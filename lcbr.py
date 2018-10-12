@@ -34,7 +34,6 @@ def load_dataset(data_files):
                 data = yaml.load(stream)
                 if 'factors' in data:
                     factors = data['factors']
-                    print(factors)
                 if 'domain_models' in data:
                     domain_models = data['domain_models']
                 if 'case_collections' in data:
