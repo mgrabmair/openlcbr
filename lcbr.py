@@ -45,8 +45,7 @@ def load_dataset(data_files):
 
 
 def case_from_collection(case_id, case_collection):
-    found = list(filter(lambda c: c['id'] == case_id,
-                        case_collections['trade_secret_test']['cases']))
+    found = list(filter(lambda c: c['id'] == case_id, case_collection['cases']))
     assert len(found) > 0, 'target case '+case_id+' not found in '+case_collection['id']
     assert len(found) == 1, 'multiple cases with id '+case_id+' found in '+case_collection['id']
     return found[0]
