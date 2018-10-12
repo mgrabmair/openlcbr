@@ -33,11 +33,12 @@ def load_dataset(data_files):
             try:
                 data = yaml.load(stream)
                 if 'factors' in data:
-                    factors = {**factors, **data['factors']}
+                    factors = data['factors']
+                    print(factors)
                 if 'domain_models' in data:
-                    domain_models = {**domain_models, **data['domain_models']}
+                    domain_models = data['domain_models']
                 if 'case_collections' in data:
-                    case_collections = {**case_collections, **data['case_collections']}
+                    case_collections = data['case_collections']
             except yaml.YAMLError as exc:
                 print('error loading data from yaml files')
                 print(exc)
@@ -57,7 +58,7 @@ def case_from_collection(case_id, case_collection):
 ## =============================================================================
 
 ## currently this is just a test for the model prediction in the KG case as published in:
-## Brüninghaus, Stefanie, and Kevin D. Ashley. "Combining case-based and model-based reasoning for predicting the outcome of legal cases." In International Conference on Case-Based Reasoning, pp. 65-79. Springer, Berlin, Heidelberg, 2003.
+## Brueninghaus, Stefanie, and Kevin D. Ashley. "Combining case-based and model-based reasoning for predicting the outcome of legal cases." In International Conference on Case-Based Reasoning, pp. 65-79. Springer, Berlin, Heidelberg, 2003.
 ## https://pdfs.semanticscholar.org/24a4/7ca6f5b2ebec9e809bf19d2b0f0da3dcab81.pdf
 ## Note: The example in this version uses a slightly different domain model due to being a code migration from VJAP. One modification is that F14 and F25 are associated with improper means which is consistent with IBP domain model diagrams but inconsistent with the KG prediction trace in the referenced paper
 
